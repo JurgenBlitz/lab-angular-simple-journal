@@ -11,9 +11,10 @@ export class RetrieverService {
     return this.http.get(`${this.BASE_URL}/api/journal-entries`)
     .map((res) => res.json());
   }
-  
-  // getOne () {
 
-  // }
+  getOne(id) {
+    return this.http.get(`${this.BASE_URL}/api/journal-entries${id}`)
+      .map((res) => res.json());
+  }
 
 }

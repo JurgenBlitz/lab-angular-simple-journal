@@ -1,3 +1,9 @@
-<p>
-  entry-list works!
-</p>
+<div class="parent">
+  <div class="el" *ngFor="let entry of entries">
+      <a [routerLink]="['/entry',entry._id]">
+      </a>
+      <h3> {{ entry.title }} </h3>
+      <p> {{ entry.date }} </p>
+      <a [routerLink]="['entry', entry._id]"> View Full Entry </a>
+  </div>
+</div>
