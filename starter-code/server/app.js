@@ -7,6 +7,7 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const cors         = require('cors');
+const entries      = require('./routes/api/journal-entries');
 
 mongoose.connect('mongodb://localhost/journal-development');
 
@@ -31,6 +32,7 @@ app.use(layouts);
 
 const index = require('./routes/index');
 app.use('/', index);
+app.use('/api', entries);
 
 app.all('/*', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
